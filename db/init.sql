@@ -5,16 +5,70 @@ CREATE DATABASE shacu;
 USE shacu;
 
 CREATE TABLE users (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-firstname VARCHAR(30) NOT NULL,
-email VARCHAR(50) NOT NULL,
-nick VARCHAR(10) NOT NULL,
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-UNIQUE KEY unique_email (email)
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	firstname VARCHAR(30) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	nick VARCHAR(10) NOT NULL,
+	is_admin BOOLEAN DEFAULT false,
+	reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	UNIQUE KEY unique_email (email)
 );
 
-INSERT INTO users 
-	(firstname, nick, email)
-VALUES 
-	('John', 'jn87', 'john@example.com'),
-	('Mery', 'Agapita', 'meryjane@example.es');
+CREATE TABLE qr (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	lat float(20),
+	lon float(20),
+	qr_name VARCHAR(200) NOT NULL,
+	qr_image VARCHAR(15000),
+	published BOOLEAN DEFAULT false,
+	reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+/* content is published if have qr_id not qr_queque;  */
+
+CREATE TABLE content (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	qr_queue INT(6) UNSIGNED,
+	queue_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	qr_id INT(6) UNSIGNED,
+	user_id INT(6) UNSIGNED,
+	size INT(10) UNSIGNED,
+	file_path VARCHAR(500) NOT NULL,
+	content_name VARCHAR(200) NOT NULL,
+	content_description VARCHAR(1000) NOT NULL,
+	content_type VARCHAR(50) NOT NULL,
+	authorized BOOLEAN DEFAULT false,
+	reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	FOREIGN KEY (qr_id)
+        REFERENCES qr(id)
+        ON DELETE CASCADE,
+	FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE content_user (
+	user_id INT(6) UNSIGNED NOT NULL,
+	content_id INT(6) UNSIGNED NOT NULL,
+	PRIMARY KEY  (user_id, content_id),
+ 	FOREIGN KEY (user_id) 
+	 	REFERENCES users(id) 
+		ON DELETE CASCADE,
+ 	FOREIGN KEY (content_id)
+		REFERENCES content(id)
+		ON DELETE CASCADE
+);
+
+
+CREATE TABLE messages (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	content_id INT(6) UNSIGNED,
+	user_id INT(6) UNSIGNED NOT NULL,
+	message_user VARCHAR(15000),
+	readed BOOLEAN DEFAULT false,
+	reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	message_type VARCHAR(200),
+	FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+);

@@ -1,0 +1,61 @@
+
++----+-------+---------+--------+------------------------------------------------------------+------------------------+--------------------------------------------------------------------------------------------------+--------------+-----------+---------------------+
+| id | qr_id | user_id | size   |                            | content_name           | content_description                                                                              | content_type | published | reg_date            |
++----+-------+---------+--------+------------------------------------------------------------+------------------------+--------------------------------------------------------------------------------------------------+--------------+-----------+---------------------+
+| 1Screenshot_67.jpg                                         | Meme Its Free          | Meme de its free que mola un montón.                                                             | image        |         0 | 2020-10-24 21:39:25 |
+| 1_346dd5e1-c54f-456d-b6bc-254487b06502_large.png           | La existencia es dolor | Rick y Morthy siempre tienen razón.                                                              | image        |         0 | 2020-10-24 23:07:30 |
+| homo-hominis-lupus.jpg                                     | Homo Homini Luppus     | Que el hombre se proteja del hombre.                                                             | image        |         0 | 2020-10-24 23:09:06 |
+| 1984_Ingsoc_George_Orwell-logo-8A79C73BFB-seeklogo.com.png | IngSoc                 | El lema del Socing es "La guerra es paz, la libertad es esclavitud, la ignorancia es la fuerza". | image        |         0 | 2020-10-24 23:12:06 |
++----+-------+---------+--------+------------------------------------------------------------+------------------------+--------------------------------------------------------------------------------------------------+--------------+-----------+---------------------+
+
+
+/*   a   =[
+    { name:'Vicente Zaragozá' , pos : {lat: 39.483373, lon:-0.357259}},
+    { name:'Benimaclet' , pos : {lat: 39.484984, lon:  -0.363066}},
+    { name:'Primat Reig' , pos : {lat: 39.486338, lon: -0.367592}},
+    { name:'Alfauir' , pos : {lat: 39.489707, lon: -0.365344}},
+    { name:'Orriols' , pos : {lat: 39.493205, lon:-0.367656}},
+    { name:'Estadi del Llevant' , pos : {lat: 39.495116, lon:-0.365175}},
+    { name:'Sant Miquel dels Reis' , pos : {lat: 39.497217, lon: -0.368515}},
+    { name:'Tossal del Rei' , pos : {lat: 39.495891, lon:-0.372480}},
+  ] */
+
+Meter la deteccion del mapa etc en el servcio de workflow
+
+
+Crear el gestor de contenido con una llmada que compruebe si es admin y entregue differentes resultados
+
+subir contenido en qr con contenido caducado
+
+Autorizar eliminar contenido admin y usuario
+
+sen cola en contenido usraio?
+
+si es asi enviar de alguna forma error al usuario
+
+cambiar la acbecera
+
+camara mejorar css e interfaz
+
+mapa poner más información en las ventanas y el carrusel
+
+rutas a los componentes adecuadas
+
+no dejar acceder a la ruta de la camara si no estas cerca de un qr
+
+al llegar al cuenta atras volver al mapa
+
+dejar los datos del mapa de forma igual
+
+ver por que se peiurde conexion al gps en el mapa
+
+Cambiar el login css y aspecto
+
+ver que se hace con el perfil (quizas solo para administrador)
+
+editar contendio no autorizado y en cola
+
+arreglar logout
+
+
+
